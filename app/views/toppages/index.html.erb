@@ -12,6 +12,9 @@
       <%= render 'microposts/microposts', microposts: @microposts, user: @user %>
     </div>
   </div>
+  <div>
+  <%= link_to favoritelists_user_path(@user) do %>Favoritelists <span class="badge"><%= @count_favoritelists %></span><% end %>
+  </div>
 <% else %>
   <div class="center jumbotron">
     <div class="text-center">

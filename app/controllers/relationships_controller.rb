@@ -12,4 +12,10 @@ class RelationshipsController < ApplicationController
     flash[:success] = 'ユーザのフォローを解除しました。'
     redirect_to user
   end
+  
+  def index
+    if logged_in?
+      @microposts = current_user.feed_microposts.order('created_at DESC').page(params[:page])
+    end
+  end
 end
